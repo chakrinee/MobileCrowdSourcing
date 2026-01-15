@@ -110,6 +110,7 @@ TensorFlow / Keras
 Matplotlib / Seaborn
 
 🚀 How to Run the Project
+'''bash
 git clone https://github.com/chakrinee/MobileCrowdSourcing.git
 cd MobileCrowdSourcing
 pip install -r requirements.txt
