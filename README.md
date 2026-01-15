@@ -74,3 +74,5 @@ cd MobileCrowdSourcing
 pip install -r requirements.txt
 jupyter notebook
 
+Author(s)
+Chakrinee Ayalasomayajula & Mohan Krishna Otikunta
