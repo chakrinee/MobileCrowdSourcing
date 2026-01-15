@@ -68,5 +68,9 @@ TensorFlow / Keras
 Matplotlib
 
 ▶️ How to Run
+'''bash 
+git clone https://github.com/chakrinee/MobileCrowdSourcing.git
+cd MobileCrowdSourcing
 pip install -r requirements.txt
-jupyter notebook Data_MCS.ipynb
+jupyter notebook
+
