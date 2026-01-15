@@ -1,124 +1,72 @@
-📱 Data Trustworthiness in Mobile Crowdsourcing
+📱 Mobile CrowdSourcing – Data Trustworthiness Analysis
 
-This repository contains the implementation and experimental analysis for the research project “Data Trustworthiness in Mobile Crowdsourcing”, which focuses on identifying malicious and trusted users in mobile crowd-sensing systems using a hybrid machine learning approach.
+This project focuses on detecting malicious and trusted users in Mobile CrowdSourcing (MCS) systems using a hybrid machine learning approach.
+Mobile CrowdSourcing relies on data collected from users’ smartphones (GPS, sensors, etc.).
+However, some users may submit false or low-quality data, which reduces the reliability of the system.
+This project aims to identify whether a user’s data is trustworthy or malicious before it is used.
 
-The project combines Generative Adversarial Networks (GANs) for synthetic data generation with a Random Forest classifier to improve trust prediction accuracy in mobile crowdsourced datasets.
+🔍 What Problem Does This Project Solve?
 
-🧠 Problem Motivation
+In Mobile CrowdSourcing systems:
+Data comes from unknown and uncontrolled users
+Some users may:
+  Manipulate sensor values
+  Submit fake or low-effort data
+  Drain system resources
+This leads to:
+  Poor data quality
+  Incorrect analysis results
+  Loss of trust in MCS platforms
 
-Mobile Crowd Sensing (MCS) relies heavily on user-generated sensor data from smartphones. While this enables large-scale data collection, it also introduces challenges such as:
+👉 Goal: Automatically classify users as Trusted (1) or Malicious (0) based on their data.
 
-Malicious or unreliable user participation
+🧠 Key Idea of the Project
 
-Manipulated or falsified sensor readings
+This project uses a hybrid model that combines:
+1. Generative Adversarial Networks (GANs)
+  Generate realistic synthetic data
+  Increase data diversity
+  Help the model learn better patterns
 
-Reduced trust in collected data
+2. Random Forest Classifier
+  Classifies users as trusted or malicious
+  Handles large datasets efficiently
+  Provides high accuracy and robustness
 
-Degraded system reliability
+By combining GAN-based data augmentation with ensemble learning, the model achieves very high classification accuracy.
 
-Ensuring data trustworthiness is critical for maintaining the integrity and usefulness of MCS applications.
-
-🏗️ Proposed Approach
-
-This project proposes a hybrid model that integrates:
-
-Generative Adversarial Networks (GANs)
-
-Generates realistic synthetic data
-
-Enhances data diversity and robustness
-
-Helps expose the model to a wider range of real-world scenarios
-
-Random Forest Classifier
-
-Classifies users as Trusted or Malicious
-
-Provides high accuracy and interpretability
-
-Handles large datasets and missing values effectively
-
-The combination of GAN-based data augmentation and ensemble learning improves model performance on unseen data.
-
-📊 Dataset Description
+📊 Dataset Overview
 
 Source: Generated using the CrowdSenSim simulation tool
-
-Size: ~14,000 records (~867 KB)
-
-Attributes: 13 features including
-
-ID, latitude, longitude, day, hour, minute, duration,
-remaining time, battery requirement %, coverage,
-grid number, legitimacy, on-peak hour
-
+Size: ~14,000 records
+Features: 13 attributes including:
+  Location (latitude, longitude)
+  Time-based features (day, hour, minute)
+  Device-related metrics (battery requirement, duration)
+  Coverage and grid information
 
 Target Variable:
 
-Legitimacy = 1 → Trusted user
+1 → Trusted user
 
-Legitimacy = 0 → Malicious user
+0 → Malicious user
 
-Synthetic data is generated using GANs excluding the legitimacy label and later classified using the trained model.
 
-⚙️ Methodology Overview
+📈 Results Summary
+  Logistic Regression Accuracy: ~72%
+  Random Forest Accuracy: ~99.8%
+  Hybrid GAN + Random Forest Accuracy: ~99.4%
 
-Dataset preprocessing and feature selection
-
-Class imbalance handling using SMOTE
-
-Baseline evaluation using Logistic Regression
-
-Training a Random Forest classifier
-
-GAN-based synthetic data generation
-
-Combining real and synthetic datasets
-
-Final classification using the hybrid model
-
-📈 Experimental Results
-
-Logistic Regression Accuracy: ~72%
-
-Random Forest Accuracy (baseline): ~99.86%
-
-Hybrid GAN + Random Forest Accuracy: ~99.4%
-
-Additional evaluation includes:
-
-Feature importance analysis
-
-Confusion matrix
-
-Precision, recall, and F1-score metrics
-
-The results demonstrate that GAN-based data augmentation significantly improves robustness and prediction accuracy.
+The results show that synthetic data generation significantly improves model performance and robustness.
 
 🧪 Technologies Used
-
-Python 3.11
-
+Python
 Jupyter Notebook
-
-Pandas & NumPy
-
+Pandas, NumPy
 Scikit-learn
-
 TensorFlow / Keras
+Matplotlib
 
-Matplotlib / Seaborn
-
-🚀 How to Run the Project
-'''bash
-git clone https://github.com/chakrinee/MobileCrowdSourcing.git
-cd MobileCrowdSourcing
+▶️ How to Run
 pip install -r requirements.txt
-jupyter notebook
-
-Open the notebook from the notebooks/ directory to reproduce the experiments.
-
-
-📜 License
-
-This project is intended for academic and research purposes only.
+jupyter notebook Data_MCS.ipynb
